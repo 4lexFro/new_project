@@ -6,4 +6,4 @@
 ● хеш объекта.
 Результат работы пришлите в чат. У вас 5 минут.'''
 text = input('Введите текст: ')
-print(type(text), id(text), hash(text))
+print(type(text), id(text), hash(text), sep = '\n')
