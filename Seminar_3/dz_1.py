@@ -27,33 +27,33 @@ max_weight = 1.0
 
 {'ключи': 0.3, 'кошелек': 0.2, 'зажигалка': 0.1}'''
 
+# items = {
+#     "ключи": 0.3,
+#     "кошелек": 0.2,
+#     "телефон": 0.5,
+#     "зажигалка": 0.1
+# }
+#max_weight = 1.0
 items = {
-    "ключи": 0.3,
-    "кошелек": 0.2,
-    "телефон": 0.5,
-    "зажигалка": 0.1
+    "спальник": 1.5,
+    "палатка": 3.2,
+    "термос": 0.6,
+    "карта": 0.1,
+    "фонарик": 0.3,
+    "котелок": 0.8,
+    "еда": 2.5,
+    "одежда": 1.7,
+    "обувь": 1.2,
+    "нож": 0.2
 }
-max_weight = 1.0
-# list_things = list(items.keys())
-# res, temp_list, current_weight = set(), [], 0
-#
-# for i in range((2 ** len(items))):
-#     sample = (list(bin(i)[2:].zfill(len(items))))
-#     for n in range(len(sample)):
-#         if sample[n] == '1':
-#             temp_list.append(list_things[n])
-#             current_weight += items[list_things[n]]
-#             if current_weight > max_weight:
-#                 temp_list.pop()
-#                 break
-#     res.add(' '.join(temp_list))
-#     temp_list, current_weight = [], 0
-#
-# print('Все варианты комплектации рюкзака:')
-# for i in sorted(res):
-#     print(i)
-sorted_things = dict(sorted(items.items(), key=lambda x: -x[1]))
-for k, v in sorted_things.items():
-    if v <= max_weight:
-        print(k, sep='/n')
-    max_weight -= v
+max_weight = 7.0
+
+
+
+backpack = {}
+backpack_weight = 0
+for item in items:
+    if items[item] + backpack_weight <= max_weight:
+        backpack[item] = items[item]
+        backpack_weight += items[item]
+print(backpack)
